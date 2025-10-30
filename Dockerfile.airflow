@@ -1,0 +1,17 @@
+FROM apache/airflow:2.8.1
+
+# ─── Root Setup ───
+USER root
+COPY wait-for-postgres.sh /opt/airflow/wait-for-postgres.sh
+RUN chmod +x /opt/airflow/wait-for-postgres.sh
+
+# ─── Switch to Airflow User ───
+USER airflow
+WORKDIR /opt/airflow
+
+# ─── Install Python Dependencies ───
+COPY requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
+
+# ─── Add Multilingual Sentiment Dependencies ───
+RUN pip install --no-cache-dir langdetect

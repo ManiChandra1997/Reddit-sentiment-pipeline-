@@ -1,0 +1,15 @@
+# ─── Reddit API ───
+praw
+
+# ─── Transformer-Based Sentiment ───
+transformers>=4.35.0
+torch>=2.1.0
+langdetect
+
+# ─── Airflow & Postgres Integration ───
+apache-airflow-providers-postgres
+psycopg2-binary
+
+# ─── Data Handling ───
+pandas
+sqlalchemy
